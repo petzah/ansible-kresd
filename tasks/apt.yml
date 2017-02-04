@@ -1,0 +1,3 @@
+---
+- name: apt-get install knot-resolver
+  apt:  name=knot-resolver state=present install_recommends=no

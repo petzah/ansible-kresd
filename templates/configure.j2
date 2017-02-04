@@ -1,0 +1,28 @@
+{% set x = dict() %}
+{% if d_kresd is defined %}
+{% set x = x|combine(d_kresd, recursive=True) %}
+{% endif %}
+{% if g_kresd is defined %}
+{% set x = x|combine(g_kresd, recursive=True) %}
+{% endif %}
+{% if h_kresd is defined %}
+{% set x = x|combine(h_kresd, recursive=True) %}
+{% endif %}
+{% if kresd is defined %}
+{% set x = x|combine(kresd, recursive=True) %}
+{% endif %}
+
+{% if item == "kresd-tls.socket" and x.kresd_tls.systemd.socket is defined %}
+{% set t = x.kresd_tls.systemd.socket %}
+{% include "systemd-unit.j2" %}
+{% endif %}
+
+{% if item == "kresd.socket" and x.kresd.systemd.socket is defined %}
+{% set t = x.kresd.systemd.socket %}
+{% include "systemd-unit.j2" %}
+{% endif %}
+
+{% if item == "kresd.service" and x.kresd.systemd.service is defined %}
+{% set t = x.kresd.systemd.service %}
+{% include "systemd-unit.j2" %}
+{% endif %}

@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Peter Zahradnik
+  description: Install and configure knot-resolver
+  license: MIT
+  min_ansible_version: 2.2
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+    - stretch
+  galaxy_tags:
+    - kresd
+    - knot-resolver
+    - dns

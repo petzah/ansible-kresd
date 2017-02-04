@@ -1,0 +1,6 @@
+{% for type in t %}
+[{{ type }}]
+{% for key, value in t[type]|dictsort %}
+{{ key | regex_replace('^(.*)\d+$', '\\1') }}={{ value }}
+{% endfor %}
+{% endfor %}

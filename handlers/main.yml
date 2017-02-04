@@ -1,0 +1,6 @@
+---
+- name: restart kresd
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: kresd.socket
