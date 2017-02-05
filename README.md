@@ -30,7 +30,7 @@ g_kresd:
           ListenStream2: '127.0.0.1:5455'
 ```
 and all hosts within group ovh will be listening on tcp ipv4+ipv6 localhost 853 for DNS-TLS
-(inherited from default.yml) and udp ipv4+ipv6 localhost port 5455 and tcp ipv4 5455 (inherited from g_kresd)
+(inherited from default/main.yml) and udp ipv4+ipv6 localhost port 5455 and tcp ipv4 5455 (inherited from g_kresd)
 
 For host specific (host_vars directory) use h_kresd
 
@@ -49,7 +49,8 @@ h_kresd:
 Use configuration options as in kresd documentation
 (notice that dot '.' needs to be replaced with two underscores)
 Example kresd.conf configuration:
-```
+```yaml
+---
 g_kresd:
   kresd:
     conf:
