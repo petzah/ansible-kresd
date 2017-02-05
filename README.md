@@ -44,4 +44,21 @@ h_kresd:
         Socket:
           ListenStream2: '[::1]:899'
           ListenStream3: '127.0.0.1:899'
-```   
+```
+
+Use configuration options as in kresd documentation
+(notice that dot '.' needs to be replaced with two underscores)
+Example kresd.conf configuration:
+```
+g_kresd:
+  kresd:
+    conf:
+      privileged:
+        options:
+          net_ipv6: 'false'
+      unprivileged:
+        options:
+          trust_anchors__hold_down_time: '30 * day'
+        actions:
+          verbose: 'false'
+```
