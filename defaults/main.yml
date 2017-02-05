@@ -13,3 +13,9 @@ d_kresd:
 #          ListenStream1: '' # reset all.. systemd.socket(5)
 #          ListenStream2: '127.0.0.1:5454'
 #          ListenStream3: '[::1]:5454'
+      service: # to fix systemctl restart kresd.socket
+        Unit:
+          BindsTo1: 'kresd.socket'
+          BindsTo2: 'kresd-tls.socket'
+          BindsTo3: 'kresd-control.socket'
+        
