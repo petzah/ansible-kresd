@@ -14,7 +14,7 @@ d_kresd:
           user: '"knot-resolver","knot-resolver"'
       unprivileged:
         options:
-          cache_size: '4 * MB'
+          cache__size: '4 * MB'
         actions:
     systemd:
 #      socket:
