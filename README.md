@@ -56,7 +56,7 @@ g_kresd:
     conf:
       privileged:
         options:
-          net_ipv6: 'false'
+          net__ipv6: 'false'
       unprivileged:
         options:
           trust_anchors__hold_down_time: '30 * day'
