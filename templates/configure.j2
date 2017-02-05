@@ -26,3 +26,26 @@
 {% set t = x.kresd.systemd.service %}
 {% include "systemd-unit.j2" %}
 {% endif %}
+
+{% if item == "kresd.conf" and x.kresd.conf is defined %}
+{% if x.kresd.conf.privileged.options is iterable %}
+{% for key, value in x.kresd.conf.privileged.options.iteritems() %}
+{{ key | replace('_', '.') }} = {{ value }}
+{% endfor %}
+{% endif %}
+{% if x.kresd.conf.privileged.actions is iterable %}
+{% for key, value in x.kresd.conf.privileged.actions.iteritems() %}
+{{ key | replace('_', '.') }}({{ value }})
+{% endfor %}
+{% endif %}
+{% if x.kresd.conf.unprivileged.options is iterable %}
+{% for key, value in x.kresd.conf.unprivileged.options.iteritems() %}
+{{ key | replace('_', '.') }} = {{ value }}
+{% endfor %}
+{% endif %}
+{% if x.kresd.conf.unprivileged.actions is iterable %}
+{% for key, value in x.kresd.conf.unprivileged.actions.iteritems() %}
+{{ key | replace('_', '.') }}({{ value }})
+{% endfor %}
+{% endif %}
+{% endif %}

@@ -7,6 +7,15 @@ d_kresd:
           ListenStream2: '[::1]:853'
           ListenStream3: '127.0.0.1:853'
   kresd:
+    conf:
+      privileged:
+        options:
+        actions:
+          user: '"knot-resolver","knot-resolver"'
+      unprivileged:
+        options:
+          cache_size: '4 * MB'
+        actions:
     systemd:
 #      socket:
 #        Socket:
